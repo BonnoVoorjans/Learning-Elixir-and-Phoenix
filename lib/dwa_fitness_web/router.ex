@@ -1,4 +1,5 @@
 defmodule DwaFitnessWeb.Router do
+  @crud_modifier [:index, :update, :create, :delete, :show]
   use DwaFitnessWeb, :router
 
   pipeline :browser do
@@ -18,6 +19,7 @@ defmodule DwaFitnessWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/users", UserController, only: @crud_modifier
     get "/hello", HelloController, :index
     get "/hello/:name", HelloController, :show
   end
