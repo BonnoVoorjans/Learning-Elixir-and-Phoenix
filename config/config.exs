@@ -13,10 +13,10 @@ config :dwa_fitness,
 # Configures the endpoint
 config :dwa_fitness, DwaFitnessWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "KTqoQhhs385uhCANOdwVwfIa8kopZsobq0VGahMaekdg2P5AY/YnL7I9hvHNvsLy",
+  secret_key_base: "ND4ory7DhSn/2YH2w7gYYkAkNDTe8qniD37TeV354W6zHiNL1ggTEdDHvkVlShxr",
   render_errors: [view: DwaFitnessWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: DwaFitness.PubSub,
-  live_view: [signing_salt: "ml3kmfWa"]
+  live_view: [signing_salt: "jIyJOa+O"]
 
 # Configures Elixir's Logger
 config :logger, :console,
