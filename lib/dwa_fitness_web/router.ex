@@ -3,7 +3,7 @@ defmodule DwaFitnessWeb.Router do
   use DwaFitnessWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "text"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
@@ -26,9 +26,10 @@ defmodule DwaFitnessWeb.Router do
     pipe_through :browser #If you want to pipe through multiple pipelines, use a list [:browser, :authenticate, :do_things]
 
     get "/", PageController, :index
-    # resources "/users", UserController, only: @crud_modifier do  #Nested resources, a user can have many posts
-    #   resources "/posts", PostController                         #but a post belongs to one user
+    # resources "/users", UserController, only: @crud_modifier do     #Nested resources, a user can have many posts
+    #   resources "/posts", PostController                            #but a post belongs to one user
     #end
+    get "/redirect_test", PageController, :redirect_test
     get "/hello", HelloController, :index
     get "/hello/:name", HelloController, :show
   end

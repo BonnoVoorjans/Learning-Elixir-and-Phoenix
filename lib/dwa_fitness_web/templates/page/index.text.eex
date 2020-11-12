@@ -1,0 +1,3 @@
+Dit is een simpele text template voor de page controller e.d. 
+In de browser pipeline van de router moet "text" geaccepteerd worden.
+In de controller moet de template (index.html) vervangen worden met de atom :index
