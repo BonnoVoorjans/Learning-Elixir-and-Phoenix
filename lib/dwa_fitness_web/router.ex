@@ -15,11 +15,20 @@ defmodule DwaFitnessWeb.Router do
     plug :accepts, ["json"]
   end
 
+#scoped route, for when e.g. an admin needs to approve reviews. None functional code
+#use as: :admin for correct path-helper
+#   scope "/admin", HelloWeb.Admin, as: :admin do 
+#     pipe_through :browser
+#     resources "/reviews", ReviewController
+# end
+
   scope "/", DwaFitnessWeb do
-    pipe_through :browser
+    pipe_through :browser #If you want to pipe through multiple pipelines, use a list [:browser, :authenticate, :do_things]
 
     get "/", PageController, :index
-    resources "/users", UserController, only: @crud_modifier
+    # resources "/users", UserController, only: @crud_modifier do  #Nested resources, a user can have many posts
+    #   resources "/posts", PostController                         #but a post belongs to one user
+    #end
     get "/hello", HelloController, :index
     get "/hello/:name", HelloController, :show
   end
