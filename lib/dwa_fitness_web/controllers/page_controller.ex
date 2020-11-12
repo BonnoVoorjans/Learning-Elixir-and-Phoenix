@@ -36,6 +36,9 @@ defmodule DwaFitnessWeb.PageController do
   # end
 
   #Phoenix provides flash messages for communication DURING actions. 
+  
+ 
+
   def index(conn, _params) do
     conn
     |> put_flash(:info, "Welcome to Phoenix, from flash info!")
@@ -47,5 +50,18 @@ defmodule DwaFitnessWeb.PageController do
   def redirect_test(conn, _params) do
     render(conn, "index.html")
   end
+
+  def index(conn, _params) do # If index above is commented out, loads static json based on data from pages in page_view
+    pages = [%{title: "foo"}, %{title: "bar"}]
+
+    render(conn, "index.json", pages: pages)
+  end
+
+  def show(conn, _params) do #see comment above
+    page = %{title: "foo"}
+
+    render(conn, "show.json", page: page)
+  end
+
   
 end
