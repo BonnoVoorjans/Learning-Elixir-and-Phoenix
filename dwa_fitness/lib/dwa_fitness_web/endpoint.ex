@@ -7,7 +7,7 @@ defmodule DwaFitnessWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_dwa_fitness_key",
-    signing_salt: "n5Sppfp2"
+    signing_salt: "RxLm0DsJ"
   ]
 
   socket "/socket", DwaFitnessWeb.UserSocket,
