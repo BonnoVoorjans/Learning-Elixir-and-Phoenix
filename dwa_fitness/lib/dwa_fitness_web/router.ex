@@ -15,7 +15,8 @@ defmodule DwaFitnessWeb.Router do
 
   scope "/", DwaFitnessWeb do
     pipe_through :browser
-
+    
+    resources "/users", UserController
     get "/", PageController, :index
   end
 
