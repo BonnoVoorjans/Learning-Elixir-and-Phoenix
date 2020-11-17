@@ -8,6 +8,7 @@ defmodule OauthExample.Accounts.User do
   schema "users" do
     field :name, :string
     field :username, :string
+    field :external_id, Ecto.UUID, autogenerate: true
 
     timestamps()
   end

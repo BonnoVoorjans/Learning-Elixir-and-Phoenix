@@ -17,7 +17,12 @@ defmodule OauthExampleWeb.AuthController do
       IO.puts("+++++++++++++++++++")
       IO.inspect(authuser_changeset)
       signin(conn, user_changeset, authuser_changeset)
-      
+    end
+
+    def signout(conn, _params) do
+      conn
+      |> configure_session(drop: true)
+      |> redirect(to: Routes.page_path(conn, :index))
     end
 
     defp signin(conn, user_changeset, authuser_changeset) do
@@ -29,7 +34,7 @@ defmodule OauthExampleWeb.AuthController do
             {:ok, authuser} -> 
               conn
               |> put_flash(:info, "Logged in succesfully!")
-              |> put_session(:user_id, user.email)
+              |> put_session(:user_id, user.external_id)
               |> redirect(to: Routes.page_path(conn, :index))
             {:error, _reason} ->
               conn
@@ -42,6 +47,8 @@ defmodule OauthExampleWeb.AuthController do
           |> redirect(to: Routes.page_path(conn, :index))  
       end
     end
+
+
 
     defp insert_user_if_not_exists(changeset) do
       case Repo.get_by(User, email: changeset.changes.email) do
