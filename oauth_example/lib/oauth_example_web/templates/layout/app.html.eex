@@ -9,26 +9,27 @@
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
-    <nav class="header">
-      <header>
-        <div class="container">
-        <div class="row">
-        <div class="column">
-          <strong>DWA Learning</strong>
-        </div>
-        <div class="column-offset-25">
-        <%= if @conn.assigns[:user] do%>
-          <%= link "Logout", to: Routes.auth_path(@conn, :signout), class: "button" %>
-        <% else %>
-        
-          <%= link "Sign in with github", to: Routes.auth_path(@conn, :request, "github"), class: "button" %>
-          <%= link "Sign in with discord", to: Routes.auth_path(@conn, :request, "discord"), class: "button" %>         
-        <% end %>
-        </div>
-        </row>
-      </div>
-    </header>
-    </nav>
+      <header class="navigation">
+        <section class="container split_header">
+          <ul class="navigation__list">
+            <li class="navigation__item">DWA Fitness</li>
+            <li class="navigation__item"><a href="<%= Routes.page_path(@conn, :index) %>">Home</a></li>
+            <%= if @conn.assigns[:user] do%>
+            <li class="navigation__item"><%= link "Workouts", to: Routes.workout_path(@conn, :index)%></li>
+            <% end %>
+          </ul>
+          <div class="split-header_signout">
+            <%= if @conn.assigns[:user] do%>
+              <%= link "Logout", to: Routes.auth_path(@conn, :signout), class: "navigation__item" %>
+            <% else %>
+            
+             <%= link "Github Signin", to: Routes.auth_path(@conn, :request, "github"), class: "navigation__item"%></li>
+             <%= link "Discord Signin", to: Routes.auth_path(@conn, :request, "discord"), class: "navigation__item" %></li>
+              
+            <% end %>
+          </div>
+        </section>
+      </header>  
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

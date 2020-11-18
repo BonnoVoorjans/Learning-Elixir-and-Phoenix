@@ -1,0 +1,23 @@
+<h1>Show Workout</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @workout.title %>
+  </li>
+
+  <li>
+    <strong>Duration:</strong>
+    <%= @workout.duration %>
+  </li>
+
+  <li>
+    <strong>Difficulty:</strong>
+    <%= @workout.difficulty %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.workout_path(@conn, :edit, @workout) %></span>
+<span><%= link "Back", to: Routes.workout_path(@conn, :index) %></span>

@@ -18,6 +18,13 @@ defmodule OauthExampleWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    scope "/workouts" do
+      get "/workout_instances", WorkoutController, :plan_workout
+      resources "/", WorkoutController
+    end
+
+    resources "/applications", WorkoutApplicationController, only: [:new, :index, :show]
     get "/chat", ChatController, :index
   end
 

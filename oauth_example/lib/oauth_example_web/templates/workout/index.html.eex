@@ -1,0 +1,31 @@
+<h1>Listing Workouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Duration</th>
+      <th>Difficulty</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for workout <- @workouts do %>
+    <tr>
+      <td><%= workout.title %></td>
+      <td><%= workout.duration %></td>
+      <td><%= workout.difficulty %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.workout_path(@conn, :show, workout) %></span>
+        <span><%= link "Edit", to: Routes.workout_path(@conn, :edit, workout) %></span>
+        <span><%= link "Delete", to: Routes.workout_path(@conn, :delete, workout), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Workout", to: Routes.workout_path(@conn, :new) %></span>
+<span><%= link "Plan Workout", to: Routes.workout_path(@conn, :plan_workout)%></span>
