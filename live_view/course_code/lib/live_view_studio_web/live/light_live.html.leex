@@ -1,0 +1,25 @@
+
+    <h1>Front Porch Light</h1>
+    <div id="light">
+      <div class="meter">
+        <span style="width: <%= @brightness %>%">
+          <%= @brightness %>%
+        </span>
+      </div>
+
+      <button phx-click="turn_off">
+        <img src="images/light-off.svg">
+      </button>
+
+      <button phx-click="dim">
+        <img src="images/down.svg">
+      </button>
+
+      <button phx-click="brighten">
+        <img src="images/up.svg">
+      </button>
+
+      <button phx-click="turn_on">
+        <img src="images/light-on.svg">
+      </button>
+    </div>
