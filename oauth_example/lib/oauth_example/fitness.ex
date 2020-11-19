@@ -6,7 +6,7 @@ defmodule OauthExample.Fitness do
   import Ecto.Query, warn: false
   alias OauthExample.Repo
 
-  alias OauthExample.Fitness.Workout
+  alias OauthExample.Fitness.{Workout, WorkoutInstance}
 
   @doc """
   Returns the list of workouts.
@@ -103,5 +103,9 @@ defmodule OauthExample.Fitness do
   """
   def change_workout(%Workout{} = workout, attrs \\ %{}) do
     Workout.changeset(workout, attrs)
+  end
+
+  def change_workout_instance(%WorkoutInstance{} = workout, attrs \\ %{}) do
+    WorkoutInstance.changeset(workout, attrs)
   end
 end

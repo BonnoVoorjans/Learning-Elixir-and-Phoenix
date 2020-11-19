@@ -1,31 +1,26 @@
-<h1>Listing Workouts</h1>
+<section class="page-hero">
+  <h1>The Workouts!</h1>
+  <p> Check existing workouts, or sign up for one</p>
+</section>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Duration</th>
-      <th>Difficulty</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
 <%= for workout <- @workouts do %>
-    <tr>
-      <td><%= workout.title %></td>
-      <td><%= workout.duration %></td>
-      <td><%= workout.difficulty %></td>
+<div class="workout-section">
+  <h2><%= workout.title %></h2>
+  <p><%= workout.duration%> minutes</p>
 
-      <td>
-        <span><%= link "Show", to: Routes.workout_path(@conn, :show, workout) %></span>
-        <span><%= link "Edit", to: Routes.workout_path(@conn, :edit, workout) %></span>
-        <span><%= link "Delete", to: Routes.workout_path(@conn, :delete, workout), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
+<%= for instance <- workout.workout_instances do%>
+  <div class="card">
+    <h4 class="card__title"><%= instance.planned_date %></h4>
+    <div class="card__body">
+    <%= link "Sign Up", to: Routes.workout_path(@conn, :join_workout, workout, instance), class: "card__button btn"%>
+    <%= link "View Session", to: Routes.workout_path(@conn, :view_session, workout), class: "card__button btn"%>
+    </div>
+  </div>
 <% end %>
-  </tbody>
-</table>
+  <span><%= link "Check sessions", to: Routes.workout_path(@conn, :show, workout), class: "card__button btn" %></span>
+  <span><%= link "Host session", to: Routes.workout_path(@conn, :edit, workout), class: "card__button btn" %></span>
+</div>
+<% end %>
 
-<span><%= link "New Workout", to: Routes.workout_path(@conn, :new) %></span>
-<span><%= link "Plan Workout", to: Routes.workout_path(@conn, :plan_workout)%></span>
+<span><%= link "New Workout", to: Routes.workout_path(@conn, :new), class: "btn"%></span>
+<span><%= link "Edit Workouts", to: Routes.workout_path(@conn, :workout_overview), class: "btn"%></span>

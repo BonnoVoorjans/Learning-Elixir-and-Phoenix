@@ -20,6 +20,11 @@ defmodule OauthExampleWeb.Router do
     get "/", PageController, :index
 
     scope "/workouts" do
+      get "/:id/session", WorkoutController, :view_session
+      post "/:id/session/:session_id", WorkoutController, :join_workout
+      get "/:id/new", WorkoutController, :new_session
+      post "/:id", WorkoutController, :create_session 
+      get "/workout_overview", WorkoutController, :workout_overview
       get "/workout_instances", WorkoutController, :plan_workout
       resources "/", WorkoutController
     end

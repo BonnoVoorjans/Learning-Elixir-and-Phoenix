@@ -2,10 +2,10 @@ defmodule OauthExample.Repo.Migrations.CreateScheduledWorkout do
   use Ecto.Migration
 
   def change do
-    create table(:workout_instances, primary_key: false) do
-      add :planned_date, :utc_datetime, primary_key: true
+    create table(:workout_instances) do
+      add :planned_date, :utc_datetime
       add :workout_id, references(:workouts, [on_delete: :delete_all]), 
-          null: false, primary_key: true
+          null: false
       timestamps()
     end
 

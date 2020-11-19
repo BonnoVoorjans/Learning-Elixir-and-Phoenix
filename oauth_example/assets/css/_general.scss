@@ -13,6 +13,21 @@ body {
 	}
 }
 
+.centralized-content {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+
+	&_column {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	&_row {
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+}
 /* Alerts and form errors */
 .alert {
 	padding: 15px;
@@ -96,11 +111,16 @@ body {
 /* Page content */
 .page-hero {
 	margin-bottom: 50px;
-	background-color: red;
 }
 
-.lesson-section {
+.workout-section {
 	margin-top: 40px;
+	margin-bottom: 15px;
+	width: 50%;
+	padding: 10px;
+	border: solid 2px #5465c7;
+	background-color: #92a2fc;
+	border-radius: 15px;
 }
 
 .image-carousel {
@@ -143,10 +163,10 @@ body {
 }
 
 .btn {
-	background-color: #e91e63;
+	background-color: #5465c7;
 	color: white;
 	border-radius: 25px;
-	padding: 12px 20px;
+	padding: 15px 20px;
 	border: none;
 	display: inline-block;
 	font-size: inherit;

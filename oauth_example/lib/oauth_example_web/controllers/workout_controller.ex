@@ -26,15 +26,10 @@ defmodule OauthExampleWeb.WorkoutController do
     end
   end
 
+ 
   def show(conn, %{"id" => id}) do
     workout = Fitness.get_workout!(id)
     render(conn, "show.html", workout: workout)
-  end
-
-  def plan_workout(conn, params) do
-    workouts = Fitness.list_workouts()
-    IO.inspect(workouts)
-    render(conn, "plan_workout.html", workouts: workouts)
   end
 
 
@@ -66,4 +61,25 @@ defmodule OauthExampleWeb.WorkoutController do
     |> put_flash(:info, "Workout deleted successfully.")
     |> redirect(to: Routes.workout_path(conn, :index))
   end
+
+  def view_session(conn, _params) do
+    workouts = Fitness.list_workouts()
+    render(conn, "index.html", workouts: workouts)
+  end
+
+  def join_workout(conn, _params) do
+    workouts = Fitness.list_workouts()
+    render(conn, "index.html", workouts: workouts)
+  end
+
+  def new_session(conn, _params) do
+    workouts = Fitness.list_workouts()
+    render(conn, "index.html", workouts: workouts)
+  end
+
+  def create_session(conn, _params) do
+    workouts = Fitness.list_workouts()
+    render(conn, "index.html", workouts: workouts)
+  end
+      
 end

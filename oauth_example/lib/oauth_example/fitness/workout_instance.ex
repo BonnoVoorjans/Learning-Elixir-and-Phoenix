@@ -3,10 +3,10 @@ defmodule OauthExample.Fitness.WorkoutInstance do
   import Ecto.Changeset
   alias OauthExample.Fitness.Workout
 
-    @primary_key false
+
   schema "workout_instances" do
-    field :planned_date, :string, primary_key: true
-    belongs_to :workout, Workout, primary_key: true
+    field :planned_date, :utc_datetime
+    belongs_to :workout, Workout
 
     timestamps()
   end
@@ -16,5 +16,6 @@ defmodule OauthExample.Fitness.WorkoutInstance do
     workout
     |> cast(attrs, [:title, :duration, :difficulty])
     |> validate_required([:title, :duration, :difficulty])
+    |> unique_constraint(:planned_date, :workout)
   end
 end

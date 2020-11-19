@@ -13,6 +13,9 @@
   <%= text_input f, :username %>
   <%= error_tag f, :username %>
 
+  <%= label f, :color %>
+  <%= color_input f, :color %>
+
   <div class="form-group">
     <%= inputs_for f, :credential, fn cf -> %>
       <%= label cf, :email %>

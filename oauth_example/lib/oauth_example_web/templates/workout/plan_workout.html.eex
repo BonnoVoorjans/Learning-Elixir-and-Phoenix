@@ -1,6 +1,0 @@
-<section class="page-hero">
-    <h1>Planned Workouts</h1>
-    <p> Plan a workout, or sign up</p>
-</section>
-<span><%= link "New Workout", to: Routes.workout_path(@conn, :new) %></span>
-<span><%= link "Plan Workout", to: Routes.workout_path(@conn, :plan_workout)%></span>
