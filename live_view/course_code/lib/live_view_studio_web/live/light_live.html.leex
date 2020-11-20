@@ -7,6 +7,12 @@
         </span>
       </div>
 
+     
+        <form phx-change="update">
+        <input style="width: 100%" type="range" min="0" max="100" name="brightness" value="<%= @brightness %>" />
+        </form>
+      
+
       <button phx-click="turn_off">
         <img src="images/light-off.svg">
       </button>
