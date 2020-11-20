@@ -1,4 +1,5 @@
 <h1>Team License</h1>
+
     <div id="license">
       <div class="card">
         <div class="content">
@@ -9,7 +10,17 @@
               <strong><%= @seats %></strong> seats.
             </span>
           </div>
-
+          <div class="sale">
+          <span>
+            <p class="m-4 font-semibold text-indigo-800">
+    <%= if @time_remaining > 0 do %>
+      <%= format_time(@time_remaining) %> left to save 20%
+    <% else %>
+      Expired!
+    <% end %>
+  </p>
+          </span>
+          </div>
           <form phx-change="change_slider">
             <input type="range" min="1" max="20"
                   name="number_of_seats" value="<%= @seats %>" />

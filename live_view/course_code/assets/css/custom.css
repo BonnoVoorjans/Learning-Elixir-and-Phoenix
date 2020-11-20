@@ -82,6 +82,14 @@ ul.examples {
 		}
 	}
 
+	.sale {
+		@apply inline-flex items-center mb-8;
+
+		span {
+			@apply text-xl font-semibold text-red-800;
+		}
+	}
+
 	.amount {
 		@apply text-4xl leading-none font-extrabold text-cool-gray-900 mt-4;
 	}
