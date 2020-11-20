@@ -25,6 +25,7 @@ defmodule LiveViewStudioWeb.Router do
     live "/autocomplete-search", AutocompleteLive 
     live "/filter", FilterLive
     live "/server", ServersLive
+    live "/paginate", PaginateLive
   end
 
   # Other scopes may use custom stacks.
