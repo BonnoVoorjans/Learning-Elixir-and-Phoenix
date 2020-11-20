@@ -103,7 +103,7 @@ ul.examples {
 			}
 
 			.value {
-				@apply block text-5xl leading-none font-extrabold text-indigo-600;
+				@apply block text-5xl leading-4 font-extrabold text-indigo-600;
 			}
 		}
 	}
@@ -154,7 +154,7 @@ ul.examples {
 		}
 
 		input[type="text"]:focus {
-			@apply outline-none;
+			@apply shadow-outline-indigo;
 		}
 
 		input[name*="city"] {
@@ -163,7 +163,7 @@ ul.examples {
 	}
 
 	button {
-		@apply h-10 px-4 py-2 bg-transparent border border-cool-gray-400 border-l-0 rounded-r-md transition ease-in-out duration-150 outline-none;
+		@apply h-10 px-4 py-2 bg-transparent border border-cool-gray-400 border-l-0 rounded-r-md transition ease-in-out duration-500 outline-none;
 
 		img {
 			@apply h-4 w-4;
@@ -171,7 +171,7 @@ ul.examples {
 	}
 
 	button:hover {
-		@apply bg-cool-gray-300;
+		@apply bg-cool-gray-300 bg-opacity-100;
 	}
 
 	.open {

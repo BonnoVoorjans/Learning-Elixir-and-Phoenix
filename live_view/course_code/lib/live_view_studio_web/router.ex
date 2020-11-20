@@ -20,6 +20,8 @@ defmodule LiveViewStudioWeb.Router do
     live "/", PageLive
     live "/light", LightLive
     live "/license", LicenseLive
+    live "/saled-dashboard", SalesDashboardLive
+    live "/search-store", SearchLive
   end
 
   # Other scopes may use custom stacks.
