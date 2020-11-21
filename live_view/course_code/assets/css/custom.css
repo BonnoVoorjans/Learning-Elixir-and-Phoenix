@@ -423,7 +423,7 @@ ul.examples {
 		@apply px-4 py-2 rounded-md text-lg font-medium leading-5 bg-green-200 text-green-800 rounded-full;
 	}
 
-	.stale {
+	.eat-now {
 		@apply px-4 py-2 rounded-md text-lg font-medium leading-5 bg-red-200 text-red-800 rounded-full;
 	}
 
