@@ -1,4 +1,20 @@
 defmodule LiveViewStudio.Volunteers do
+
+  def subscribe do
+    Phoenix.PubSub.subscribe(LiveViewStudio.PubSub, "volunteers")
+  end
+
+  def broadcast({:ok, volunteer}, event) do
+    Phoenix.PubSub.broadcast(
+      LiveViewStudio.PubSub,
+      "volunteers",
+      {event, volunteer}
+    )
+
+    {:ok, volunteer}
+  end
+  
+  def broadcast({:error, _reason} = error, _event), do: error
   @moduledoc """
   The Volunteers context.
   """
@@ -53,6 +69,7 @@ defmodule LiveViewStudio.Volunteers do
     %Volunteer{}
     |> Volunteer.changeset(attrs)
     |> Repo.insert()
+    |> broadcast(:volunteer_updated)
   end
 
   @doc """
@@ -68,9 +85,11 @@ defmodule LiveViewStudio.Volunteers do
 
   """
   def update_volunteer(%Volunteer{} = volunteer, attrs) do
-    volunteer
-    |> Volunteer.changeset(attrs)
-    |> Repo.update()
+    {:ok, volunteer} =
+      volunteer
+      |> Volunteer.changeset(attrs)
+      |> Repo.update()
+      |> broadcast(:volunteer_updated)
   end
 
   @doc """
