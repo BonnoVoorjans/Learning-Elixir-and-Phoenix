@@ -34,14 +34,37 @@ ul.examples {
 	@apply max-w-full mx-auto flex flex-row flex-none justify-around;
 
 	.column {
-		@apply w-full bg-gray-100 border-gray-50 shadow border-2 pb-4 ml-10 mr-10 text-black rounded-2xl flex flex-col justify-around justify-items-center text-center overflow-hidden;
+		@apply w-full bg-gray-100 border-gray-50 shadow pb-4 ml-10 mr-10 text-black rounded-2xl flex flex-col text-center overflow-hidden;
 
 		.header {
-			@apply bg-white overflow-hidden mb-2 font-black border-b-2 border-gray-200;
+			@apply bg-white overflow-hidden mb-2 font-bold border-b-2 border-gray-200 uppercase;
 		}
 
-		.task {
-			@apply w-11/12 bg-white shadow border-gray-50 mb-1 mt-1 pt-4 pb-4 text-black pl-4 pr-4 rounded-2xl self-center;
+		.task-card {
+			@apply w-11/12 bg-white shadow border-gray-50 text-black rounded-2xl self-center overflow-hidden flex flex-col justify-items-start;
+
+			h6 {
+				@apply block bg-gray-200 text-gray-500 pl-4 text-2xl mb-3 subpixel-antialiased font-semibold capitalize text-left;
+			}
+
+			.description {
+				@apply text-xl text-left pl-2 pr-2;
+
+				p {
+					@apply mb-3 leading-tight pr-4;
+				}
+			}
+
+			.label-row {
+				@apply flex flex-row;
+
+				.difficulty {
+					@apply bg-red-500 rounded-lg text-white text-lg pl-4 pr-4 pt-1 pb-1 m-2;
+				}
+				.points {
+					@apply bg-purple-500 rounded-lg text-white text-lg pl-4 pr-4 pt-1 pb-1 m-2;
+				}
+			}
 		}
 	}
 }
