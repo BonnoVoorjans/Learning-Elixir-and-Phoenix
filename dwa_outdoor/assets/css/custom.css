@@ -31,10 +31,10 @@ ul.examples {
 }
 
 #board {
-	@apply max-w-full mx-auto flex flex-row flex-none justify-around;
+	@apply max-w-full mx-auto flex flex-row flex-none justify-center px-4;
 
 	.column {
-		@apply w-full bg-gray-100 border-gray-50 shadow pb-4 ml-10 mr-10 text-black rounded-2xl flex flex-col text-center overflow-hidden;
+		@apply w-1/5 bg-gray-100 ml-4 mr-4 border-gray-50 shadow pb-4 text-black rounded-2xl flex flex-col text-center overflow-hidden;
 
 		.header {
 			@apply bg-white overflow-hidden mb-2 font-bold border-b-2 border-gray-200 uppercase;
@@ -44,7 +44,7 @@ ul.examples {
 			@apply w-11/12 bg-white shadow border-gray-50 text-black rounded-2xl self-center overflow-hidden flex flex-col justify-items-start;
 
 			h6 {
-				@apply block bg-gray-200 text-gray-500 pl-4 text-2xl mb-3 subpixel-antialiased font-semibold capitalize text-left;
+				@apply block bg-gray-200 text-gray-600 pl-4 text-2xl mb-3 subpixel-antialiased font-semibold capitalize text-left;
 			}
 
 			.description {
