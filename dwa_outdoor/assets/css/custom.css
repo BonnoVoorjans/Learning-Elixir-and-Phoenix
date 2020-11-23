@@ -58,11 +58,24 @@ ul.examples {
 			.label-row {
 				@apply flex flex-row;
 
-				.difficulty {
-					@apply bg-red-500 rounded-lg text-white text-lg pl-4 pr-4 pt-1 pb-1 m-2;
+				.label {
+					@apply rounded-lg text-white text-lg pl-4 pr-4 pt-1 pb-1 m-2;
 				}
+
+				.easy {
+					@apply bg-green-500;
+				}
+
+				.medium {
+					@apply bg-orange-400;
+				}
+
+				.hard {
+					@apply bg-red-600;
+				}
+
 				.points {
-					@apply bg-purple-500 rounded-lg text-white text-lg pl-4 pr-4 pt-1 pb-1 m-2;
+					@apply bg-purple-500;
 				}
 			}
 		}
