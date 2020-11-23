@@ -31,13 +31,11 @@ Hooks.InfiniteScroll = {
             }
         });
         this.observer.observe(this.el);
-    },
-    
+    },   
     updated(){
         const pageNumber = this.el.dataset.pageNumber
         console.log("Updated, ", pageNumber)
     },
-
     destroyed(){
         this.observer.disconnect();
     }
